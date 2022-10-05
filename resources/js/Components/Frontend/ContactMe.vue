@@ -14,8 +14,19 @@ const submit = () => {
 </script>
 
 <template>
-    <section class="sectin bg-light-primary dark:bg-dark-primary">
-        <div class="container mx-auto">
+    <section id="contact" class="section bg-light-primary dark:bg-dark-primary">
+        <div
+            class="container mx-auto"
+            v-motion
+            :initial="{
+                opacity: 0,
+                y: 100,
+            }"
+            :visible="{
+                opacity: 1,
+                y: 0,
+            }"
+        >
             <div class="flex flex-col items-center text-center">
                 <h2 class="section-title">Contact Me</h2>
                 <p class="subtitle">
@@ -107,7 +118,11 @@ const submit = () => {
                                 class="input"
                                 placeholder="Your Name"
                             />
-                            <span v-if="form.errors.name" class="text-sm m-2 text-red-400">{{ form.errors.name }}</span>
+                            <span
+                                v-if="form.errors.name"
+                                class="text-sm m-2 text-red-400"
+                                >{{ form.errors.name }}</span
+                            >
                         </div>
                         <div>
                             <input
@@ -116,7 +131,11 @@ const submit = () => {
                                 class="input"
                                 placeholder="Your Email"
                             />
-                            <span v-if="form.errors.email" class="text-sm m-2 text-red-400">{{ form.errors.email }}</span>
+                            <span
+                                v-if="form.errors.email"
+                                class="text-sm m-2 text-red-400"
+                                >{{ form.errors.email }}</span
+                            >
                         </div>
                     </div>
                     <textarea
@@ -125,7 +144,11 @@ const submit = () => {
                         placeholder="Your Meassage"
                         spellcheck="false"
                     ></textarea>
-                    <span v-if="form.errors.body" class="text-sm m-2 text-red-400">{{ form.errors.body }}</span>
+                    <span
+                        v-if="form.errors.body"
+                        class="text-sm m-2 text-red-400"
+                        >{{ form.errors.body }}</span
+                    >
                     <button
                         class="btn btn-lg bg-accent hover:bg-secondary text-white"
                     >
